@@ -55,6 +55,11 @@ a {
   color: inherit;
 }
 
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
 
 /* ========================================
    3. SIDEBAR NAVIGATION
@@ -68,16 +73,14 @@ a {
   left: 0;
   background: var(--sidebar);
   padding: 45px 30px;
-
   display: flex;
   flex-direction: column;
-
   z-index: 100;
 }
 
 .logo {
   font-family: var(--heading-font);
-  font-size: 30px;
+  font-size: 27px;
   margin-bottom: 55px;
 }
 
@@ -87,29 +90,22 @@ a {
   gap: 18px;
 }
 
-.sidebar a {
+.sidebar nav a {
   text-decoration: none;
   color: var(--sidebar-text);
   font-size: 16px;
   transition: color 0.2s, padding 0.2s;
+  width: fit-content;
 }
 
-.sidebar a:hover {
+.sidebar nav a:hover {
   color: var(--accent);
   padding-left: 5px;
 }
 
-/* Current page indicator */
-
-.sidebar a.active {
+.sidebar nav a.active {
   color: var(--accent);
   font-weight: bold;
-}
-
-.sidebar .footer {
-  margin-top: auto;
-  font-size: 12px;
-  color: #858778;
 }
 
 
@@ -124,19 +120,24 @@ main {
   min-height: 100vh;
 }
 
-.welcome {
+.welcome,
+.eyebrow {
   display: inline-block;
-  background: #DCE8D8;
   color: var(--sidebar-text);
-  padding: 6px 14px;
-  border-radius: 20px;
   font-size: 12px;
   letter-spacing: 1px;
-  margin-bottom: 25px;
+  margin-bottom: 18px;
+}
+
+.welcome {
+  background: #DCE8D8;
+  padding: 6px 14px;
+  border-radius: 20px;
 }
 
 h1 {
   font-size: 52px;
+  line-height: 1.2;
   margin-bottom: 12px;
 }
 
@@ -154,9 +155,26 @@ h1 {
   margin-bottom: 45px;
 }
 
+.page-header {
+  margin-bottom: 40px;
+}
+
+.page-header h1 {
+  margin-bottom: 12px;
+}
+
+.page-header > p:last-child {
+  color: var(--text-muted);
+  max-width: 700px;
+}
+
 .section-title {
   font-size: 27px;
   margin-bottom: 20px;
+}
+
+section {
+  margin-bottom: 35px;
 }
 
 
@@ -168,6 +186,17 @@ h1 {
   padding: 24px;
   border-radius: 14px;
   margin-bottom: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 18px rgba(53, 72, 61, 0.06);
+}
+
+.card h2 {
+  font-size: 23px;
+  margin-bottom: 8px;
 }
 
 .card h3 {
@@ -180,12 +209,22 @@ h1 {
   font-size: 15px;
 }
 
+.card p + p {
+  margin-top: 10px;
+}
+
 .card-label {
+  display: block;
   font-size: 11px;
   letter-spacing: 1px;
   font-weight: bold;
   color: #71816E;
   margin-bottom: 8px;
+}
+
+.muted {
+  color: var(--text-muted);
+  font-size: 13px;
 }
 
 /* Pastel backgrounds */
@@ -204,6 +243,23 @@ h1 {
 
 .yellow {
   background: var(--yellow);
+}
+
+/* Links inside cards */
+
+.card a {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--sidebar-text);
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.card a:hover {
+  color: var(--accent);
+  text-decoration: underline;
 }
 
 
@@ -227,34 +283,14 @@ h1 {
 
 
 /* ========================================
-   7. PROJECTS
+   7. ORIGAMI GALLERY
 ======================================== */
 
-.project-card {
-  padding: 25px;
-  border-radius: 14px;
-  margin-bottom: 20px;
-}
-
-.project-card h3 {
-  font-size: 21px;
-  margin-bottom: 10px;
-}
-
-.project-card p {
-  color: var(--text-muted);
-  font-size: 15px;
-}
-
-
-/* ========================================
-   8. ORIGAMI GALLERY
-======================================== */
-
+.origami-gallery,
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: 24px;
 }
 
 .gallery-item {
@@ -263,11 +299,26 @@ h1 {
   overflow: hidden;
 }
 
+.gallery-placeholder {
+  aspect-ratio: 4 / 5;
+  background: var(--green);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sidebar-text);
+  font-family: var(--heading-font);
+  font-size: 17px;
+  text-align: center;
+  padding: 20px;
+}
+
 .gallery-item img {
   display: block;
   width: 100%;
-  height: 250px;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
+  border-radius: 12px;
   transition: transform 0.3s;
 }
 
@@ -275,16 +326,22 @@ h1 {
   transform: scale(1.04);
 }
 
+.gallery-item h3 {
+  font-size: 18px;
+  margin-top: 12px;
+}
+
 
 /* ========================================
-   9. RESPONSIVE DESIGN
+   8. RESPONSIVE DESIGN
 ======================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   main {
-    padding: 60px 6%;
+    padding: 60px 7%;
   }
 
+  .origami-gallery,
   .gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -296,21 +353,18 @@ h1 {
     width: 100%;
     height: auto;
     position: relative;
-    padding: 20px;
+    padding: 20px 25px;
   }
 
   .logo {
+    font-size: 25px;
     margin-bottom: 15px;
   }
 
   .sidebar nav {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 12px 20px;
-  }
-
-  .sidebar .footer {
-    display: none;
+    gap: 10px 20px;
   }
 
   main {
@@ -322,17 +376,124 @@ h1 {
     font-size: 40px;
   }
 
+  .subtitle {
+    font-size: 20px;
+  }
+
   .interest-grid {
     grid-template-columns: 1fr;
   }
 
+  .origami-gallery,
   .gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 400px) {
+  .origami-gallery,
   .gallery {
     grid-template-columns: 1fr;
+  }
+}
+
+
+/* ========================================
+   9. REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* ========================================
+   ORIGAMI LIGHTBOX
+======================================== */
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(35, 45, 38, 0.92);
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox figure {
+  text-align: center;
+  max-width: 85%;
+  max-height: 85vh;
+}
+
+.lightbox-image {
+  display: block;
+  max-width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  margin: auto;
+  border-radius: 8px;
+}
+
+.lightbox-caption {
+  color: #F8F5ED;
+  margin-top: 16px;
+  font-family: Georgia, serif;
+  font-size: 18px;
+}
+
+.lightbox button {
+  position: absolute;
+  border: none;
+  background: transparent;
+  color: #F8F5ED;
+  cursor: pointer;
+  font-size: 36px;
+  padding: 10px;
+}
+
+.lightbox button:hover {
+  color: #E8C5A9;
+}
+
+.lightbox-close {
+  top: 20px;
+  right: 30px;
+}
+
+.lightbox-prev {
+  left: 25px;
+}
+
+.lightbox-next {
+  right: 25px;
+}
+
+@media (max-width: 600px) {
+  .lightbox {
+    padding: 20px;
+  }
+
+  .lightbox figure {
+    max-width: 100%;
+  }
+
+  .lightbox-prev {
+    left: 5px;
+  }
+
+  .lightbox-next {
+    right: 5px;
   }
 }
