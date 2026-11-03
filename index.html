@@ -4,164 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Aadi Agrawal | Portfolio</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #F8F5ED;
-      color: #35483D;
-      line-height: 1.7;
-    }
-
-    .sidebar {
-      width: 240px;
-      height: 100vh;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background: #E8EBDD;
-      padding: 45px 30px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .logo {
-      font-family: Georgia, serif;
-      font-size: 30px;
-      margin-bottom: 55px;
-    }
-
-    .sidebar nav {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .sidebar a {
-      text-decoration: none;
-      color: #536653;
-      font-size: 16px;
-      transition: 0.2s;
-    }
-
-    .sidebar a:hover {
-      color: #B8795D;
-      padding-left: 5px;
-    }
-
-    .sidebar .footer {
-      margin-top: auto;
-      font-size: 12px;
-      color: #858778;
-    }
-
-    main {
-      margin-left: 240px;
-      padding: 80px 10%;
-      max-width: 1200px;
-    }
-
-    .welcome {
-      display: inline-block;
-      background: #DCE8D8;
-      color: #536653;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 12px;
-      letter-spacing: 1px;
-      margin-bottom: 25px;
-    }
-
-    h1 {
-      font-family: Georgia, serif;
-      font-size: 52px;
-      font-weight: normal;
-      margin-bottom: 12px;
-    }
-
-    .subtitle {
-      font-family: Georgia, serif;
-      font-size: 23px;
-      color: #71816E;
-      margin-bottom: 28px;
-    }
-
-    .intro {
-      max-width: 650px;
-      color: #66665D;
-      font-size: 16px;
-      margin-bottom: 55px;
-    }
-
-    .section-title {
-      font-family: Georgia, serif;
-      font-size: 27px;
-      font-weight: normal;
-      margin-bottom: 20px;
-    }
-
-    .interest-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      max-width: 650px;
-    }
-
-    .interest {
-      padding: 25px;
-      border-radius: 14px;
-      font-family: Georgia, serif;
-      font-size: 19px;
-    }
-
-    .green { background: #E2EBDD; }
-    .blue { background: #E2EAF2; }
-    .peach { background: #F4E3D6; }
-    .yellow { background: #F3EDCE; }
-
-    @media (max-width: 700px) {
-      .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
-        padding: 20px;
-      }
-
-      .logo {
-        margin-bottom: 15px;
-      }
-
-      .sidebar nav {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 12px 20px;
-      }
-
-      .sidebar .footer {
-        display: none;
-      }
-
-      main {
-        margin-left: 0;
-        padding: 45px 25px;
-      }
-
-      h1 {
-        font-size: 40px;
-      }
-
-      .interest-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -170,7 +16,7 @@
     <div class="logo">Aadi.</div>
 
     <nav>
-      <a href="index.html">Home</a>
+      <a href="index.html" class="active">Home</a>
       <a href="education.html">Education</a>
       <a href="projects.html">Projects</a>
       <a href="origami.html">Origami</a>
@@ -180,13 +26,15 @@
     <div class="footer">Personal Portfolio</div>
   </aside>
 
+
   <main>
+
     <div class="welcome">WELCOME TO MY WEBSITE</div>
 
     <h1>Hello, I'm Aadi.</h1>
 
     <p class="subtitle">
-      Curious mind. Analytical thinker. Creative explorer.
+      Mathematics, computing and things that interest me.
     </p>
 
     <p class="intro">
@@ -196,6 +44,41 @@
       collection of my academic journey, projects and personal interests.
     </p>
 
+
+    <section class="current-section">
+
+      <h2 class="section-title">Currently</h2>
+
+      <div class="card green">
+        <div class="card-label">STUDIES</div>
+
+        <h3>M.S. in Mathematics and Computing</h3>
+
+        <p>
+          Indian Institute of Science Education and Research (IISER), Pune
+        </p>
+      </div>
+
+
+      <div class="card blue">
+        <div class="card-label">CURRENT SEMESTER PROJECT</div>
+
+        <h3>
+          Graph Localization and Complexity Theory on Puzzles and Games
+        </h3>
+
+        <p>
+          A semester-long reading project exploring computational
+          complexity through different contexts, beginning with the
+          Graph Localization Problem and also examining puzzles and
+          games through <em>Puzzles, Games, and Computation</em>
+          by B. Hearne and Erik D. Demaine.
+        </p>
+      </div>
+
+    </section>
+
+
     <h2 class="section-title">A few things I enjoy</h2>
 
     <div class="interest-grid">
@@ -204,6 +87,7 @@
       <div class="interest peach">Games & Puzzles</div>
       <div class="interest yellow">Origami & Creativity</div>
     </div>
+
   </main>
 
 </body>
