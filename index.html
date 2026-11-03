@@ -3,199 +3,208 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Aadi Agrawal's academic and project portfolio.">
-  <title>Aadi Agrawal | Mathematics & Computation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aadi Agrawal | Portfolio</title>
+
   <style>
-    :root {
-      --bg: #faf9f6;
-      --text: #252a34;
-      --muted: #626b79;
-      --accent: #315c81;
-      --line: #e4e2dc;
-      --card: #ffffff;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    * { box-sizing: border-box; }
-
     body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: system-ui, -apple-system, sans-serif;
+      font-family: Arial, sans-serif;
+      background: #F8F5ED;
+      color: #35483D;
       line-height: 1.7;
     }
 
-    main {
-      width: min(850px, 90%);
-      margin: auto;
-    }
-
-    nav {
+    .sidebar {
+      width: 240px;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #E8EBDD;
+      padding: 45px 30px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 24px 0;
-      border-bottom: 1px solid var(--line);
-      gap: 16px;
+      flex-direction: column;
     }
 
-    nav a, a { color: var(--accent); }
-    nav a { text-decoration: none; }
-    nav div { display: flex; gap: 18px; }
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 30px;
+      margin-bottom: 55px;
+    }
 
-    header { padding: 76px 0 52px; }
+    .sidebar nav {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
 
-    .eyebrow {
-      color: var(--accent);
-      font-size: .85rem;
-      font-weight: 650;
-      letter-spacing: .1em;
-      text-transform: uppercase;
+    .sidebar a {
+      text-decoration: none;
+      color: #536653;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+
+    .sidebar a:hover {
+      color: #B8795D;
+      padding-left: 5px;
+    }
+
+    .sidebar .footer {
+      margin-top: auto;
+      font-size: 12px;
+      color: #858778;
+    }
+
+    main {
+      margin-left: 240px;
+      padding: 80px 10%;
+      max-width: 1200px;
+    }
+
+    .welcome {
+      display: inline-block;
+      background: #DCE8D8;
+      color: #536653;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
     }
 
     h1 {
-      font-size: clamp(2.4rem, 7vw, 4.2rem);
-      line-height: 1.1;
-      letter-spacing: -.04em;
-      margin: 16px 0;
+      font-family: Georgia, serif;
+      font-size: 52px;
+      font-weight: normal;
+      margin-bottom: 12px;
     }
 
-    h2 { font-size: 1.6rem; }
-    .intro { max-width: 650px; font-size: 1.12rem; }
-    .muted { color: var(--muted); }
-
-    section {
-      padding: 28px 0;
-      border-top: 1px solid var(--line);
+    .subtitle {
+      font-family: Georgia, serif;
+      font-size: 23px;
+      color: #71816E;
+      margin-bottom: 28px;
     }
 
-    .projects {
+    .intro {
+      max-width: 650px;
+      color: #66665D;
+      font-size: 16px;
+      margin-bottom: 55px;
+    }
+
+    .section-title {
+      font-family: Georgia, serif;
+      font-size: 27px;
+      font-weight: normal;
+      margin-bottom: 20px;
+    }
+
+    .interest-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      gap: 18px;
+      max-width: 650px;
     }
 
-    article {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 20px;
+    .interest {
+      padding: 25px;
+      border-radius: 14px;
+      font-family: Georgia, serif;
+      font-size: 19px;
     }
 
-    article h3 { margin-top: 0; line-height: 1.4; }
-    article p { color: var(--muted); font-size: .95rem; }
-    .tag { font-size: .8rem; color: var(--accent); }
+    .green { background: #E2EBDD; }
+    .blue { background: #E2EAF2; }
+    .peach { background: #F4E3D6; }
+    .yellow { background: #F3EDCE; }
 
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 24px 0 40px;
-      color: var(--muted);
-      font-size: .9rem;
-    }
+    @media (max-width: 700px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 20px;
+      }
 
-    @media (max-width: 580px) {
-      .projects { grid-template-columns: 1fr; }
-      header { padding-top: 48px; }
-      nav { align-items: flex-start; flex-wrap: wrap; }
+      .logo {
+        margin-bottom: 15px;
+      }
+
+      .sidebar nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+      }
+
+      .sidebar .footer {
+        display: none;
+      }
+
+      main {
+        margin-left: 0;
+        padding: 45px 25px;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .interest-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
+
 <body>
-  <main>
+
+  <aside class="sidebar">
+    <div class="logo">Aadi.</div>
+
     <nav>
-      <strong>Aadi Agrawal</strong>
-      <div>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="https://github.com/aadicatni">GitHub</a>
-      </div>
+      <a href="index.html">Home</a>
+      <a href="education.html">Education</a>
+      <a href="projects.html">Projects</a>
+      <a href="origami.html">Origami</a>
+      <a href="contact.html">Contact</a>
     </nav>
 
-    <header>
-      <div class="eyebrow">Mathematics · Computation · Curiosity</div>
-      <h1>Hi, I'm Aadi.</h1>
-      <p class="intro">
-        I'm interested in mathematics, machine learning, algorithms,
-        games, and puzzles — especially the ideas and methods that
-        connect them.
-      </p>
-      <p>
-        <a href="#projects">Explore my projects ↓</a>
-        &nbsp; · &nbsp;
-        <a href="https://github.com/aadicatni">GitHub profile ↗</a>
-      </p>
-    </header>
+    <div class="footer">Personal Portfolio</div>
+  </aside>
 
-    <section id="about">
-      <h2>About</h2>
-      <p>
-        I'm building a portfolio of projects from my bachelor's degree
-        while continuing to explore mathematical and computational
-        problem-solving.
-      </p>
-      <p class="muted">
-        My interests include optimisation, statistical learning,
-        graph algorithms, logical reasoning, and strategy.
-      </p>
-    </section>
+  <main>
+    <div class="welcome">WELCOME TO MY WEBSITE</div>
 
-    <section id="projects">
-      <h2>Selected projects</h2>
-      <p class="muted">
-        A selection of academic and computational projects.
-      </p>
+    <h1>Hello, I'm Aadi.</h1>
 
-      <div class="projects">
-        <article>
-          <div class="tag">OPTIMISATION</div>
-          <h3>Timetable Scheduling</h3>
-          <p>
-            Applying a genetic algorithm to university timetable
-            scheduling with hard and soft constraints.
-          </p>
-          <a href="https://github.com/aadicatni/Bsc_sem4">
-            View repository →
-          </a>
-        </article>
+    <p class="subtitle">
+      Curious mind. Analytical thinker. Creative explorer.
+    </p>
 
-        <article>
-          <div class="tag">MACHINE LEARNING</div>
-          <h3>Guitar Chord Recognition</h3>
-          <p>
-            Exploring audio features and SVM classification to
-            recognise guitar chords.
-          </p>
-          <a href="https://github.com/aadicatni/Bsc_sem5">
-            View repository →
-          </a>
-        </article>
+    <p class="intro">
+      Welcome to my little corner of the internet! I'm interested in
+      mathematics, machine learning, games and puzzles. I enjoy exploring
+      ideas, solving problems and learning new things. This website is a
+      collection of my academic journey, projects and personal interests.
+    </p>
 
-        <article>
-          <div class="tag">GRAPH ALGORITHMS</div>
-          <h3>Playlist Generation</h3>
-          <p>
-            A bachelor's project exploring playlist generation
-            using graph traversal algorithms.
-          </p>
-          <a href="https://github.com/aadicatni/Bsc_sem6">
-            View repository →
-          </a>
-        </article>
-      </div>
-    </section>
+    <h2 class="section-title">A few things I enjoy</h2>
 
-    <section id="contact">
-      <h2>Find me online</h2>
-      <p>
-        Explore my code and academic projects on
-        <a href="https://github.com/aadicatni">GitHub</a>.
-      </p>
-    </section>
-
-    <footer>
-      © 2026 Aadi Agrawal · Built with HTML and CSS · Hosted on GitHub Pages
-    </footer>
+    <div class="interest-grid">
+      <div class="interest green">Mathematics</div>
+      <div class="interest blue">Machine Learning</div>
+      <div class="interest peach">Games & Puzzles</div>
+      <div class="interest yellow">Origami & Creativity</div>
+    </div>
   </main>
+
 </body>
 </html>
