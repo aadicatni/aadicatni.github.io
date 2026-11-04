@@ -543,3 +543,26 @@ section {
   font-style: italic;
 }
 
+.coursework-group {
+  margin-bottom: 24px;
+}
+
+.coursework-group h3 {
+  font-size: 19px;
+  margin-bottom: 12px;
+}
+
+.coursework-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.coursework-tags span {
+  display: inline-block;
+  background: var(--blue);
+  color: var(--text);
+  border-radius: 20px;
+  padding: 7px 13px;
+  font-size: 14px;
+}
