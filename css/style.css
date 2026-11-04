@@ -46,7 +46,9 @@ body {
   line-height: 1.7;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: var(--heading-font);
   font-weight: normal;
 }
@@ -227,6 +229,7 @@ section {
   font-size: 13px;
 }
 
+
 /* Pastel backgrounds */
 
 .green {
@@ -244,6 +247,7 @@ section {
 .yellow {
   background: var(--yellow);
 }
+
 
 /* Links inside cards */
 
@@ -348,7 +352,6 @@ section {
 }
 
 @media (max-width: 700px) {
-
   .sidebar {
     width: 100%;
     height: auto;
@@ -412,8 +415,9 @@ section {
   }
 }
 
+
 /* ========================================
-   ORIGAMI LIGHTBOX
+   10. ORIGAMI LIGHTBOX
 ======================================== */
 
 .lightbox {
@@ -498,71 +502,83 @@ section {
   }
 }
 
+
 /* ========================================
-   EDUCATION PAGE
+   11. EDUCATION PAGE
 ======================================== */
 
-.degree-link {
+/* Degree links */
+
+.card h2 a.degree-link {
+  display: inline;
+  margin: 0;
   color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: normal;
   text-decoration: none;
-  transition: color 0.2s;
 }
 
-.degree-link:hover {
+.card h2 a.degree-link:hover {
   color: var(--accent);
   text-decoration: underline;
 }
 
+
+/* Coursework groups */
+
+.coursework-section {
+  margin-top: 40px;
+}
+
 .coursework-group {
-  margin-bottom: 24px;
+  margin-bottom: 28px;
 }
 
 .coursework-group h3 {
   font-size: 19px;
-  margin-bottom: 12px;
+  margin-bottom: 13px;
 }
+
+
+/* Rounded coursework labels */
 
 .coursework-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 9px;
-}
-
-.coursework-tags span {
-  display: inline-block;
-  background: var(--blue);
-  color: var(--text);
-  border-radius: 20px;
-  padding: 7px 13px;
-  font-size: 14px;
-}
-
-.achievement-note {
-  margin-top: 18px;
-  font-family: var(--heading-font);
-  font-style: italic;
-}
-
-.coursework-group {
-  margin-bottom: 24px;
-}
-
-.coursework-group h3 {
-  font-size: 19px;
-  margin-bottom: 12px;
-}
-
-.coursework-tags {
-  display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   gap: 10px;
 }
 
 .coursework-tags span {
   display: inline-block;
   background: var(--blue);
+  border: 1px solid #D1DDE8;
   color: var(--text);
   border-radius: 20px;
-  padding: 7px 13px;
+  padding: 8px 14px;
+  font-family: var(--body-font);
   font-size: 14px;
+  line-height: 1.4;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.coursework-tags span:hover {
+  background: #D3E0EC;
+  transform: translateY(-2px);
+}
+
+
+/* Achievements */
+
+.achievements-section {
+  margin-top: 40px;
+}
+
+.achievement-note {
+  margin-top: 12px;
+  color: var(--text-muted);
+  font-family: var(--heading-font);
+  font-size: 15px;
+  font-style: italic;
 }
