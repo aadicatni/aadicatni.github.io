@@ -1,151 +1,584 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* ========================================
+   1. DESIGN VARIABLES
+======================================== */
 
-  <title>Education | Aadi Agrawal</title>
+:root {
+  --background: #F8F5ED;
+  --sidebar: #E8EBDD;
 
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js" defer></script>
-</head>
+  --green: #E2EBDD;
+  --blue: #E2EAF2;
+  --peach: #F4E3D6;
+  --yellow: #F3EDCE;
 
-<body>
+  --text: #35483D;
+  --text-muted: #66665D;
+  --accent: #B8795D;
+  --sidebar-text: #536653;
 
-  <aside class="sidebar">
-    <div class="logo">Aadi Agrawal</div>
+  --heading-font: Georgia, serif;
+  --body-font: Arial, sans-serif;
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="education.html">Education</a>
-      <a href="projects.html">Projects</a>
-      <a href="origami.html">Origami</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </aside>
+  --sidebar-width: 240px;
+  --content-width: 1100px;
+}
 
-  <main>
 
-    <div class="welcome">ACADEMIC BACKGROUND</div>
+/* ========================================
+   2. GLOBAL STYLES
+======================================== */
 
-    <h1>Education</h1>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    <p class="subtitle">
-      A little about my academic journey so far.
-    </p>
+html {
+  scroll-behavior: smooth;
+}
 
-    <section class="card green">
-      <div class="card-label">AUGUST 2025 – PRESENT</div>
+body {
+  font-family: var(--body-font);
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.7;
+}
 
-      <h2>
-        <a class="degree-link"
-           href="https://www.iiserpune.ac.in/research/department/mathematics/admissions"
-           target="_blank" rel="noopener noreferrer">
-          M.S. in Mathematics and Computing ↗
-        </a>
-      </h2>
+h1,
+h2,
+h3 {
+  font-family: var(--heading-font);
+  font-weight: normal;
+}
 
-      <h3>Indian Institute of Science Education and Research (IISER), Pune</h3>
+a {
+  color: inherit;
+}
 
-      <p>
-        Graduate studies combining mathematical theory with computational
-        methods and applications.
-      </p>
-    </section>
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
 
-    <section class="card blue">
-      <div class="card-label">AUGUST 2022 – MAY 2025</div>
 
-      <h2>
-        <a class="degree-link"
-           href="https://mathematics.nmims.edu/academics/programs/bsc-applied-mathematical-computing/"
-           target="_blank" rel="noopener noreferrer">
-          B.Sc. in Applied Mathematical Computing ↗
-        </a>
-      </h2>
+/* ========================================
+   3. SIDEBAR NAVIGATION
+======================================== */
 
-      <h3>
-        NMIMS – Nilkamal School of Mathematics, Applied Statistics & Analytics
-      </h3>
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--sidebar);
+  padding: 45px 30px;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
 
-      <p>
-        Undergraduate studies spanning mathematics, statistics,
-        computational methods and machine learning.
-      </p>
-    </section>
+.logo {
+  font-family: var(--heading-font);
+  font-size: 27px;
+  margin-bottom: 55px;
+}
 
-    <section>
-      <h2 class="section-title">Coursework</h2>
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
 
-      <div class="coursework-group">
-        <h3>Pure Mathematics</h3>
-        <div class="coursework-tags">
-          <span>Abstract Algebra</span>
-          <span>Rings and Modules</span>
-          <span>Real Analysis</span>
-          <span>Metric Spaces</span>
-          <span>Point Set Topology</span>
-          <span>Complex Analysis</span>
-          <span>Measure Theory and Integration</span>
-          <span>Algebraic Topology</span>
-          <span>Algebraic Number Theory</span>
-        </div>
-      </div>
+.sidebar nav a {
+  text-decoration: none;
+  color: var(--sidebar-text);
+  font-size: 16px;
+  transition: color 0.2s, padding 0.2s;
+  width: fit-content;
+}
 
-      <div class="coursework-group">
-        <h3>Applied Mathematics</h3>
-        <div class="coursework-tags">
-          <span>Advanced Linear Algebra</span>
-          <span>Applied Linear Algebra</span>
-          <span>Numerical Analysis</span>
-          <span>Optimization Techniques</span>
-          <span>Probability</span>
-          <span>Statistical Inference</span>
-          <span>Partial Differential Equations</span>
-          <span>Ordinary Differential Equations</span>
-        </div>
-      </div>
+.sidebar nav a:hover {
+  color: var(--accent);
+  padding-left: 5px;
+}
 
-      <div class="coursework-group">
-        <h3>Computing and Data</h3>
-        <div class="coursework-tags">
-          <span>Discrete Mathematics and Graph Theory</span>
-          <span>Supervised Machine Learning</span>
-          <span>Unsupervised Machine Learning</span>
-        </div>
-      </div>
-    </section>
+.sidebar nav a.active {
+  color: var(--accent);
+  font-weight: bold;
+}
 
-    <section class="card peach">
-      <div class="card-label">ACADEMIC INTERESTS</div>
 
-      <h2>Areas I enjoy exploring</h2>
+/* ========================================
+   4. MAIN CONTENT
+======================================== */
 
-      <p>
-        Graph theory and combinatorics, algebra and topology,
-        and the formalization of mathematics using Lean.
-      </p>
-    </section>
+main {
+  margin-left: var(--sidebar-width);
+  padding: 80px 10%;
+  max-width: calc(var(--content-width) + var(--sidebar-width));
+  min-height: 100vh;
+}
 
-    <section>
-      <h2 class="section-title">Achievements</h2>
+.welcome,
+.eyebrow {
+  display: inline-block;
+  color: var(--sidebar-text);
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+}
 
-      <div class="card yellow">
-        <h2>NBHM Scholarship Examination</h2>
+.welcome {
+  background: #DCE8D8;
+  padding: 6px 14px;
+  border-radius: 20px;
+}
 
-        <p>
-          Qualified the written round of the National Board for
-          Higher Mathematics (NBHM) examination.
-        </p>
+h1 {
+  font-size: 52px;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
 
-        <p class="achievement-note">
-          Hoping to add more soon.
-        </p>
-      </div>
-    </section>
+.subtitle {
+  font-family: var(--heading-font);
+  font-size: 23px;
+  color: #71816E;
+  margin-bottom: 28px;
+}
 
-  </main>
+.intro {
+  max-width: 700px;
+  color: var(--text-muted);
+  font-size: 16px;
+  margin-bottom: 45px;
+}
 
-</body>
-</html>
+.page-header {
+  margin-bottom: 40px;
+}
+
+.page-header h1 {
+  margin-bottom: 12px;
+}
+
+.page-header > p:last-child {
+  color: var(--text-muted);
+  max-width: 700px;
+}
+
+.section-title {
+  font-size: 27px;
+  margin-bottom: 20px;
+}
+
+section {
+  margin-bottom: 35px;
+}
+
+
+/* ========================================
+   5. CARDS
+======================================== */
+
+.card {
+  padding: 24px;
+  border-radius: 14px;
+  margin-bottom: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 18px rgba(53, 72, 61, 0.06);
+}
+
+.card h2 {
+  font-size: 23px;
+  margin-bottom: 8px;
+}
+
+.card h3 {
+  font-size: 19px;
+  margin-bottom: 7px;
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+.card p + p {
+  margin-top: 10px;
+}
+
+.card-label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #71816E;
+  margin-bottom: 8px;
+}
+
+.muted {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+
+/* Pastel backgrounds */
+
+.green {
+  background: var(--green);
+}
+
+.blue {
+  background: var(--blue);
+}
+
+.peach {
+  background: var(--peach);
+}
+
+.yellow {
+  background: var(--yellow);
+}
+
+
+/* Links inside cards */
+
+.card a {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--sidebar-text);
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.card a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+
+/* ========================================
+   6. INTEREST GRID
+======================================== */
+
+.interest-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 650px;
+}
+
+.interest {
+  padding: 25px;
+  border-radius: 14px;
+  font-family: var(--heading-font);
+  font-size: 19px;
+}
+
+
+/* ========================================
+   7. ORIGAMI GALLERY
+======================================== */
+
+.origami-gallery,
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.gallery-item {
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.gallery-placeholder {
+  aspect-ratio: 4 / 5;
+  background: var(--green);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sidebar-text);
+  font-family: var(--heading-font);
+  font-size: 17px;
+  text-align: center;
+  padding: 20px;
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.04);
+}
+
+.gallery-item h3 {
+  font-size: 18px;
+  margin-top: 12px;
+}
+
+
+/* ========================================
+   8. RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 1000px) {
+  main {
+    padding: 60px 7%;
+  }
+
+  .origami-gallery,
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 20px 25px;
+  }
+
+  .logo {
+    font-size: 25px;
+    margin-bottom: 15px;
+  }
+
+  .sidebar nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+  }
+
+  main {
+    margin-left: 0;
+    padding: 45px 25px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  .subtitle {
+    font-size: 20px;
+  }
+
+  .interest-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .origami-gallery,
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 400px) {
+  .origami-gallery,
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ========================================
+   9. REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+
+/* ========================================
+   10. ORIGAMI LIGHTBOX
+======================================== */
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(35, 45, 38, 0.92);
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox figure {
+  text-align: center;
+  max-width: 85%;
+  max-height: 85vh;
+}
+
+.lightbox-image {
+  display: block;
+  max-width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  margin: auto;
+  border-radius: 8px;
+}
+
+.lightbox-caption {
+  color: #F8F5ED;
+  margin-top: 16px;
+  font-family: Georgia, serif;
+  font-size: 18px;
+}
+
+.lightbox button {
+  position: absolute;
+  border: none;
+  background: transparent;
+  color: #F8F5ED;
+  cursor: pointer;
+  font-size: 36px;
+  padding: 10px;
+}
+
+.lightbox button:hover {
+  color: #E8C5A9;
+}
+
+.lightbox-close {
+  top: 20px;
+  right: 30px;
+}
+
+.lightbox-prev {
+  left: 25px;
+}
+
+.lightbox-next {
+  right: 25px;
+}
+
+@media (max-width: 600px) {
+  .lightbox {
+    padding: 20px;
+  }
+
+  .lightbox figure {
+    max-width: 100%;
+  }
+
+  .lightbox-prev {
+    left: 5px;
+  }
+
+  .lightbox-next {
+    right: 5px;
+  }
+}
+
+
+/* ========================================
+   11. EDUCATION PAGE
+======================================== */
+
+/* Degree links */
+
+.card h2 a.degree-link {
+  display: inline;
+  margin: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.card h2 a.degree-link:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+
+/* Coursework groups */
+
+.coursework-section {
+  margin-top: 40px;
+}
+
+.coursework-group {
+  margin-bottom: 28px;
+}
+
+.coursework-group h3 {
+  font-size: 19px;
+  margin-bottom: 13px;
+}
+
+
+/* Rounded coursework labels */
+
+.coursework-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.coursework-tags span {
+  display: inline-block;
+  background: var(--blue);
+  border: 1px solid #D1DDE8;
+  color: var(--text);
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-family: var(--body-font);
+  font-size: 14px;
+  line-height: 1.4;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.coursework-tags span:hover {
+  background: #D3E0EC;
+  transform: translateY(-2px);
+}
+
+
+/* Achievements */
+
+.achievements-section {
+  margin-top: 40px;
+}
+
+.achievement-note {
+  margin-top: 12px;
+  color: var(--text-muted);
+  font-family: var(--heading-font);
+  font-size: 15px;
+  font-style: italic;
+}
