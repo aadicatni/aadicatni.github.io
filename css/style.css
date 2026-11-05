@@ -582,3 +582,32 @@ section {
   font-size: 15px;
   font-style: italic;
 }
+/* Clickable homepage interest tiles */
+
+a.interest {
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+a.interest:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 18px rgba(53, 72, 61, 0.10);
+}
+
+a.interest:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.muted a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: #AAB5A5;
+  text-underline-offset: 3px;
+  transition: color 0.2s;
+}
+
+.muted a:hover {
+  color: var(--accent);
+}
